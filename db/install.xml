@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/quiz/accessrule/activeaudit/db" VERSION="20200930" COMMENT="XMLDB file for Moodle mod/quiz/accessrule/activeaudit"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="quizaccess_activeaudit" COMMENT="Stores the additional settings required by this access rule.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="quizid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The ID of the quiz that this rule belongs to."/>
+        <FIELD NAME="enabled" TYPE="binary" NOTNULL="true" SEQUENCE="false" COMMENT="Determines if this rule is active or not"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="quizid" TYPE="foreign-unique" FIELDS="quizid" REFTABLE="quiz" REFFIELDS="id" COMMENT="Foreign key to quiz ID"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

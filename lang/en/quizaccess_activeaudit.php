@@ -19,10 +19,12 @@
  *
  * @package     quizaccess_activeaudit
  * @category    string
- * @copyright   2020 Your Name <you@example.com>
+ * @copyright   2020 Matt Porritt <mattp@catalyst-au.net>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Active Audit';
+
+$string['enableactiveaudit'] = 'Enable active audit for this quiz';

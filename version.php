@@ -18,14 +18,14 @@
  * Plugin version and other meta-data are defined here.
  *
  * @package     quizaccess_activeaudit
- * @copyright   2020 Your Name <you@example.com>
+ * @copyright   2020 Matt Porritt <mattp@catalyst-au.net>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'quizaccess_activeaudit';
-$plugin->release = '2020092500';
-$plugin->version = 2020092500;
+$plugin->release = '2020093000';
+$plugin->version = 2020093000;
 $plugin->requires = 2018051700;
 $plugin->maturity = MATURITY_ALPHA;
