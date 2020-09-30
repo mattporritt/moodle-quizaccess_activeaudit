@@ -99,4 +99,35 @@ class quizaccess_activeaudit extends quiz_access_rule_base {
         return $sqlarray;
     }
 
+    /**
+     * Return an appropriately configured instance of this rule, if it is applicable to the given quiz, otherwise return null.
+     *
+     * @param quiz $quizobj information about the quiz in question.
+     * @param int $timenow the time that should be considered as 'now'.
+     * @param bool $canignoretimelimits whether the current user is exempt from time limits.
+     * @return quiz_access_rule_base|null the rule, if applicable, else null.
+     */
+    public static function make(quiz $quizobj, $timenow, $canignoretimelimits) {
+
+        if (empty($quizobj->get_quiz()->enableactiveaudit)) {
+            return null;
+        }
+
+        return new self($quizobj, $timenow);
+    }
+
+    /**
+     * Display a message on the quiz view page to students about the requirements for this quiz.
+     * Also inject the javascript that is required for this page.
+     *
+     * @return string The message to students about the active audit requirements.
+     */
+    public function description() {
+        global $PAGE;
+
+        $PAGE->requires->js_call_amd('quizaccess_activeaudit/setup', 'init');
+
+        return 'ARGHHHHHHHH';
+    }
+
 }
