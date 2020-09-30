@@ -47,7 +47,7 @@ class quizaccess_activeaudit extends quiz_access_rule_base {
 
         // Enable active audit functionality for the quiz.
         $mform->addElement('advcheckbox', 'enableactiveaudit',
-            get_string('enableactiveaudit', 'quizaccess_activeaudit'),
+            get_string('enable', 'quizaccess_activeaudit'),
             get_string('enableactiveaudit', 'quizaccess_activeaudit'),
             array(), array(0, 1)
             );
@@ -57,9 +57,9 @@ class quizaccess_activeaudit extends quiz_access_rule_base {
     /**
      * Save the settings from the quiz settings form to this plugins database table.
      *
-     * @param \stdClass $quiz the data from the quiz form, including $quiz->id which is the id of the quiz being saved.
+     * @param object $quiz the data from the quiz form, including $quiz->id which is the id of the quiz being saved.
      */
-    public static function save_settings(\stdClass $quiz): void {
+    public static function save_settings($quiz): void {
         global $DB;
 
         // We are only storing if rule is enabled or not.
@@ -76,9 +76,9 @@ class quizaccess_activeaudit extends quiz_access_rule_base {
     /**
      * Remove the rule settings from the database if this rule is disabled for the quiz.
      *
-     * @param \stdClass $quiz the data from the quiz form, including $quiz->id which is the id of the quiz being saved.
+     * @param object $quiz the data from the quiz form, including $quiz->id which is the id of the quiz being saved.
      */
-    public static function delete_settings(\stdClass $quiz): void {
+    public static function delete_settings($quiz) {
         global $DB;
         $DB->delete_records('quizaccess_activeaudit', array('quizid' => $quiz->id));
     }
@@ -86,10 +86,10 @@ class quizaccess_activeaudit extends quiz_access_rule_base {
     /**
      * Return the SQL and params needed to load all the settings for this access rule.
      *
-     * @param \stdClass $quiz the data from the quiz form, including $quiz->id which is the id of the quiz being saved.
+     * @param int $quizid the id of the quiz we are loading settings for
      * @return array $sqlarray The SQL fragment and params to return.
      */
-    public static function get_settings_sql(\stdClass $quiz): array {
+    public static function get_settings_sql($quiz) {
         $fields = 'activeaudit.enabled AS enableactiveaudit';
         $joins = 'LEFT JOIN {quizaccess_activeaudit} activeaudit ON activeaudit.quizid = quiz.id';
         $params = array();

@@ -27,4 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Active Audit';
 
+$string['enable'] = 'Enable active audit';
 $string['enableactiveaudit'] = 'Enable active audit for this quiz';
+$string['enableactiveaudit_help'] = 'When selected active audit functionality will be enabled for this quiz';
