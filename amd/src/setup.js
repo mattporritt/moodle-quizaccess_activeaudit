@@ -20,6 +20,20 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+
+const testclick = (event) => {
+    event.preventDefault();
+    window.console.log('test link clicked');
+
+    // Pass a message to the content script of the Active Audit plugin.
+    let msg = {
+            sender: 'CLIENT',
+            type: 'ACTION',
+            content: 'test message'
+    };
+    window.postMessage(msg, window.origin);
+};
+
 /**
  * Set up the plugin.
  *
@@ -27,4 +41,7 @@
  */
 export const init = () => {
     window.console.log('we have been started');
+
+    let testlink = document.getElementById('quizaccess-activeaudit-test-link');
+    testlink.addEventListener('click', testclick);
 };

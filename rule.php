@@ -127,7 +127,9 @@ class quizaccess_activeaudit extends quiz_access_rule_base {
 
         $PAGE->requires->js_call_amd('quizaccess_activeaudit/setup', 'init');
 
-        return 'ARGHHHHHHHH';
+        $link = \html_writer::link('#', 'Click to test', array('id' => 'quizaccess-activeaudit-test-link'));
+
+        return $link;
     }
 
 }
