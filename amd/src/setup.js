@@ -29,7 +29,7 @@ const testclick = (event) => {
     let msg = {
             sender: 'CLIENT',
             type: 'ACTION',
-            content: 'test message'
+            content: 'SHOW_PREVIEW'
     };
     window.postMessage(msg, window.origin);
 };
